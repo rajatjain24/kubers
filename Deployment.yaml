@@ -1,0 +1,20 @@
+\apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flower-app-deployment
+  namespace: test-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: test-container
+          image: muralisocial123/flower-sample:v2.0
+          ports:
+            - containerPort: 3015
